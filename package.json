@@ -1,0 +1,22 @@
+{
+    "name": "training-server",
+    "version": "1.0.0",
+    "description": "Server in Node with Express",
+    "main": "index.js",
+    "keywords": [
+        "server"
+    ],
+    "author": "Agnieszka Sierbista",
+    "license": "ISC",
+    "scripts": {
+        "start": "node index.js",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "dependencies": {
+        "express": "^4.18.1"
+    },
+    "devDependencies": {
+        "@types/node": "^18.7.13",
+        "nodemon": "^2.0.19"
+    }
+}
