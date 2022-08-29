@@ -1,4 +1,5 @@
 const http = require('http');
+const {handlePatchRequest} = require("./handlers");
 const {handlePutRequest} = require("./handlers");
 const {handleDeleteRequest} = require("./handlers");
 const {handlePostRequest} = require("./handlers");
@@ -16,6 +17,8 @@ const server = http.createServer((req, res) => {
             return handleDeleteRequest(req, res);
         case 'PUT':
             return handlePutRequest(req, res);
+        case 'PATCH':
+            return handlePatchRequest(req, res);
         default:
             throw new Error(`Unsupported request method: ${method}`);
     }

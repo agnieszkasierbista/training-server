@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Index from server</title>
+    </head>
+    <body>
+
+        <section>
+
+            <form method="get" action="/data" target="_blank">
+                <p>
+                    GET data from database:
+                </p>
+                <input type="submit" value="GET DATA"  />
+            </form>
+
+            <form method="post" action="/post" target="_blank">
+                <p>
+                    POST data to database:
+                </p>
+                <input name="title" value="qwasdfdsfsdfe"/>
+                <input name="body" value="ssssssssssssssssqwe"/>
+                <input type="number" name="userId" value="1"/>
+                <input type="submit" value="POST"/>
+            </form>
+
+            <form method="put" action="/put" target="_blank">
+                <p>
+                    PUT data at database:
+                </p>
+                <input type="submit" value="PUT"/>
+            </form>
+
+            <form method="patch" action="/patch" target="_blank">
+                <p>
+                    PATCH data from database:
+                </p>
+                <input type="submit" value="PATCH"/>
+            </form>
+
+            <form action="/delete" target="_blank" method="delete">
+                <p>
+                    DELETE data from database:
+                </p>
+                <input type="submit" value="DELETE" />
+            </form>
+
+        </section>
+    </body>
+</html>
