@@ -45,17 +45,59 @@ function handleGetRequest(req, res) {
 function handlePostRequest(req, res) {
 
     let data = '';
+    let stringifiedJson = '';
     req.on('data', chunk => {
         data += chunk;
     });
     req.on('end', () => {
 
-        console.log(data); // 'Buy the milk'
+        // console.log(data);
         const json = qs.parse(data);
-        console.log(json);
-        res.end(JSON.stringify(json));
+        // console.log(json);
+        stringifiedJson = JSON.stringify(json);
+        console.log(stringifiedJson);
+
+
 
     });
+
+    const parsedURL = new URL(url);
+    const options = {
+        url: url,
+        hostname: parsedURL.hostname,
+        path: parsedURL.pathname,
+        body: stringifiedJson,
+        headers: {
+            'Content-type': 'application/json; charset=UTF-8',
+        },
+        method: 'POST'
+
+    }
+
+    console.log(options.path)
+
+    const request = http.request(options, (response) => {
+
+        let dataRes = '';
+        response.on('data', (chunk) => {
+            dataRes += chunk;
+        });
+
+        response.on('end', (chunk) => {
+            res.end(dataRes);
+        });
+
+        console.log('dataRes', dataRes);
+    })
+
+    request.on('error', (err) => {
+        console.log(err)
+        res.statusCode = 404;
+        return res.end('Requested resource does not exist');
+    })
+
+    request.end()
+
 
 
 }
